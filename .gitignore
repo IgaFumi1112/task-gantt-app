@@ -1,0 +1,56 @@
+# ==========================================
+# 共通除外パターン
+# ==========================================
+# OS固有
+.DS_Store
+Thumbs.db
+
+# IDE (IntelliJ, VSCode, Eclipse など)
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+
+# ログファイル
+*.log
+
+# 環境変数ファイル
+.env
+
+# ==========================================
+# バックエンド（Java / Spring Boot）
+# ==========================================
+# Maven/Gradle ビルド成果物
+target/
+build/
+
+# H2 Database ファイル
+**/data/h2db.*
+
+# Lombok の生成ファイル（IDEによっては出る場合）
+*.class
+
+# Spring Boot DevTools リモートファイル
+**/logs/
+
+# ==========================================
+# フロントエンド（Node.js / React など）
+# ==========================================
+# Node.js modules
+node_modules/
+
+# ビルド成果物
+dist/
+build/
+
+# npm ログ
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# キャッシュ
+.cache/
