@@ -1,5 +1,7 @@
 # task-gantt-app 要件定義書
 
+このProjectは，AI（ChatGPT）を最大限使用して作成しております．
+
 ## 目次
 - [task-gantt-app 要件定義書](#task-gantt-app-要件定義書)
   - [目次](#目次)
