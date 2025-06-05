@@ -1,16 +1,18 @@
-// src/App.js
+// src/App.jsx
 import React from 'react';
-import AppRouter from './router';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/layout/Header';
+import AppRouter from './router';
 
 export default function App() {
   return (
-    <div>
-      <Header />
-      <div className="container mx-auto p-4">
-        {/* BrowserRouter はここでは使わない */}
-        <AppRouter />
-      </div>
-    </div>
+   <div className="font-futuristic bg-cyber-bg min-h-screen text-neon-cyan">
+     <Header />
+     <main className="container mx-auto px-4 py-6">
+       <div className="neon-outline p-4">
+         <AppRouter />
+       </div>
+     </main>
+   </div>
   );
 }

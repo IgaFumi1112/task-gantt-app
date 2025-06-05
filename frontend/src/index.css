@@ -1,26 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* src/index.css */
 @import './style/frappe-gantt.css';
 
-/* カスタムクラス例：計画バーと実績バーの色を区別 */
-.planned-task .bar {
-  fill: #87cefa; /* 水色 */
-}
-.planned-task .bar:hover {
-  fill: #00bfff;
+/* ベース設定 */
+body {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  font-family: 'Orbitron', sans-serif;
 }
 
-/* 実績バーを擬似要素で重ねる場合、後述 */
+/* スクロールバー調整 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #00f0ff;
+  border-radius: 10px;
+}
+
+/* ボタンデザイン */
+.cyber-button {
+  background: linear-gradient(90deg, #ff007f, #00f0ff);
+  color: black;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00f0ff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cyber-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00f0ff;
+}
+
+/* 入力フォーム */
+.cyber-input {
+  background-color: #1e1e1e;
+  border: 1px solid #00f0ff;
+  color: #00f0ff;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+/* カード風パネル */
+.cyber-card {
+  background-color: #1e1e1e;
+  border: 1px solid #00f0ff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+/* Ganttバーの調整 */
+.planned-task .bar {
+  fill: #00f0ff;
+}
+.planned-task .bar:hover {
+  fill: #00bcd4;
+}
