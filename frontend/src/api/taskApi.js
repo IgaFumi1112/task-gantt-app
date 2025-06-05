@@ -1,10 +1,9 @@
+// src/api/taskApi.js
 import axios from 'axios';
 
 const apiClient = axios.create({
   baseURL: '/api',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
 });
 
 export const getTasksByProjectId = (projectId) =>
