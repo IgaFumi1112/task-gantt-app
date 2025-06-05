@@ -3,15 +3,14 @@ import React from 'react';
 import AppRouter from './router';
 import Header from './components/layout/Header';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
+    <div>
       <Header />
       <div className="container mx-auto p-4">
+        {/* BrowserRouter はここでは使わない */}
         <AppRouter />
       </div>
     </div>
   );
 }
-
-export default App;

@@ -11,7 +11,6 @@ export default function Header() {
       <Link to="/projects" className="hover:underline">
         ガントチャート
       </Link>
-      {/* 必要に応じて検索ページやホームへリンクを追加 */}
     </nav>
   );
 }
