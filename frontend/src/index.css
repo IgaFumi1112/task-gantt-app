@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* src/index.css */
+@import './style/frappe-gantt.css';
+
+/* カスタムクラス例：計画バーと実績バーの色を区別 */
+.planned-task .bar {
+  fill: #87cefa; /* 水色 */
+}
+.planned-task .bar:hover {
+  fill: #00bfff;
+}
+
+/* 実績バーを擬似要素で重ねる場合、後述 */
