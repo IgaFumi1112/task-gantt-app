@@ -1,12 +1,24 @@
 @import './style/frappe-gantt.css';
 
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ベース設定 */
 body {
-  background-color: #0d0d0d;
+  background: linear-gradient(45deg, #0a0f1a, #001f3f, #0a0f1a);
+  background-size: 600% 600%;
+  animation: cyberBg 20s ease infinite;
   color: #e0e0e0;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0; padding: 0;
 }
-
+@keyframes cyberBg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 /* スクロールバー調整 */
 ::-webkit-scrollbar {
   width: 8px;
@@ -18,18 +30,47 @@ body {
 
 /* ボタンデザイン */
 .cyber-button {
-  background: linear-gradient(90deg, #ff007f, #00f0ff);
-  color: black;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  width: 140px;            /* 幅を一定に */
+  white-space: nowrap;      /* 折り返し禁止 */
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: #111;
+  background: linear-gradient(135deg, #08f7fe, #fe53bb);
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 10px #00f0ff;
-  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 
+    0 0 8px rgba(8,247,254,0.7),
+    0 0 16px rgba(254,83,187,0.7);
+}
+.btn-cyber::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 60%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
 }
 .cyber-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00f0ff;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 0 12px rgba(8,247,254,0.9),
+    0 0 24px rgba(254,83,187,0.9);
+}
+.btn-cyber:hover::before {
+  transform: scale(1);
+}
+.btn-cyber:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    0 0 6px rgba(8,247,254,0.5),
+    0 0 12px rgba(254,83,187,0.5);
 }
 
 /* 入力フォーム */
@@ -56,4 +97,122 @@ body {
 }
 .planned-task .bar:hover {
   fill: #00bcd4;
+}
+
+/* リンク強調 */
+a {
+  @apply text-link underline;
+}
+a:hover {
+  @apply text-link-hover;
+}
+
+/* index.css に追加 */
+.btn {
+  margin-right: 10px;
+  text-decoration: none;
+  @apply px-6 py-3 bg-link text-black font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105;
+}
+
+/* 3D フューチャリスティックボタン */
+.btn-3d {
+  @apply px-4 py-2 font-bold text-sm rounded-lg relative inline-block;
+  perspective: 500px;
+  height: 50px;
+}
+.btn-3d::before,
+.btn-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: transform 0.2s;
+}
+/* 背面のシャドウプレート */
+.btn-3d::before {
+  @apply bg-gradient-to-b from-neon-cyan to-neon-blue;
+  opacity: 0.5;     
+  box-shadow: 
+    0 0 8px #08f7fe,
+    0 0 16px #08f7fe,
+    0 0 24px #08f7fe;          /* 全体を半透明に */
+  transform: translateZ(-6px) scale(0.95);
+}
+/* 表面の輝き */
+.btn-3d::after {
+  @apply bg-gradient-to-r from-neon-blue to-neon-pink;
+  opacity: 0.25;              /* 軽いオーバーレイ感 */
+  mix-blend-mode: overlay;
+}
+.btn-3d > span {
+  @apply relative; /* テキストを前面に出す */
+  line-height: 33px;
+}
+.btn-3d:hover::before {
+  transform: translateZ(-4px) scale(0.98);
+}
+.btn-3d:hover::after {
+  animation: spark 2.0s ease-out forwards infinite;
+}
+@keyframes spark {
+  0% { opacity: 0; transform: scale(0.5) translateZ(0); }
+  50%   { opacity: 0.5; transform: scale(1.2) translateZ(10px); }
+  100% { opacity: 0; transform: scale(0.5) translateZ(0); }
+}
+.btn-3d:active::before {
+  transform: translateZ(-2px) scale(0.99);
+}
+.btn-3d:active {
+  transform: translateZ(-4px) scale(0.98);
+}
+.btn-3d:active::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #08f7fe;
+  opacity: 0.8;
+  border-radius: inherit;
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', monospace;
+  text-shadow: 0 0 8px currentColor;
+}
+
+.neon-text {
+  color: #08f7fe;
+}
+
+.cyber-panel-bg {
+  background: rgba(10,15,30,0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(8,247,254,0.4);
+}
+
+/* src/index.css */
+.table-full {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+
+.table-full th,
+.table-full td {
+  background: rgba(10,15,30,0.8);
+  padding: 0.75rem 1rem;
+  color: #e0e0e0;
+}
+
+.table-full th {
+  font-weight: 600;
+}
+
+.FR{
+  color: red;
+}
+
+td{
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
 }

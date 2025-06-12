@@ -39,6 +39,7 @@ export default function ProjectDetail() {
   };
 
   return (
+    <div className="container space-y-12">
    <div className="max-w-lg mx-auto p-6 cyber-panel-bg neon-outline rounded-2xl drop-shadow-glow-pink">
      <h2 className="text-2xl neon-text font-bold mb-6">プロジェクト詳細</h2>
       <div>
@@ -66,7 +67,7 @@ export default function ProjectDetail() {
         {/* 編集ボタン */}
        <Link
          to={`/projects/${projectId}/edit`}
-         className="neon-button text-sm flex items-center space-x-2"
+         className="btn px-6 py-3 bg-gray-800 text-neon-cyan rounded-lg hover:bg-gray-700 transition duration-150"
        >
          <span>編集</span>
        </Link>
@@ -74,7 +75,7 @@ export default function ProjectDetail() {
         {/* タスク一覧ボタン */}
        <Link
          to={`/projects/${projectId}/tasks`}
-         className="neon-button text-sm flex items-center space-x-2"
+         className="btn px-6 py-3 bg-gray-800 text-neon-cyan rounded-lg hover:bg-gray-700 transition duration-150"
        >
          <span>タスク一覧</span>
        </Link>
@@ -82,7 +83,7 @@ export default function ProjectDetail() {
         {/* ガントチャートボタン */}
        <Link
          to={`/projects/${projectId}/gantt`}
-         className="neon-button text-sm flex items-center space-x-2"
+         className="btn wid-100 px-6 py-3 bg-gray-800 text-neon-cyan rounded-lg hover:bg-gray-700 transition duration-150"
        >
          <span>ガントチャート</span>
        </Link>
@@ -90,11 +91,12 @@ export default function ProjectDetail() {
         {/* 削除ボタン */}
        <button
          onClick={handleDelete}
-         className="neon-button text-sm flex items-center space-x-2"
+         className="btn wid-100 px-6 py-3 bg-gray-800 text-neon-cyan rounded-lg hover:bg-gray-700 transition duration-150"
        >
          <span>削除</span>
        </button>
       </div>
+    </div>
     </div>
   );
 }

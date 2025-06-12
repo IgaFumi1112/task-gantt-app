@@ -70,45 +70,45 @@ export default function ProjectForm() {
 
   return (
     <div className="max-w-lg mx-auto p-8 cyber-panel-bg neon-outline rounded-3xl drop-shadow-glow-lime">
-      <h2 className="text-3xl neon-text font-bold mb-8">
+      <h2 className="text-xl lg:text-2xl neon-text font-bold mb-6">
         {projectId ? 'プロジェクト編集' : '新規プロジェクト作成'}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* プロジェクト名 */}
-        <div>
-          <label className="block text-neon-cyan font-semibold mb-2 text-lg">
+        <div className="space-y-1">
+          <label className="block text-link font-semibold">
             プロジェクト名 <span className="text-neon-pink">*</span>
           </label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus-neon"
+            className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-link"
             placeholder="例：次世代AI研究"
           />
         </div>
  
         {/* 概要 */}
-        <div>
-          <label className="block text-neon-cyan font-semibold mb-2 text-lg">概要</label>
+        <div className="space-y-1">
+          <label className="block text-link font-semibold">概要</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus-neon"
+            className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-link"
             rows="4"
             placeholder="プロジェクトの概要を記入"
           />
         </div>
  
         {/* 親プロジェクト */}
-        <div>
+        <div className="space-y-1">
           <label className="block text-neon-cyan font-semibold mb-2 text-lg">
             親プロジェクト (任意)
           </label>
           <select
             value={parentId}
             onChange={(e) => setParentId(e.target.value)}
-            className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus-neon"
+            className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-link"
           >
             <option value="">-- 選択しない --</option>
             {allProjects
@@ -122,39 +122,38 @@ export default function ProjectForm() {
         </div>
  
         {/* 計画期間 */}
-        <div className="grid grid-cols-2 gap-6">
-          <div>
-            <label className="block text-neon-cyan font-semibold mb-2 text-lg">計画開始日</label>
-            <input
-              type="date"
-              value={plannedStartDate}
-              onChange={(e) => setPlannedStartDate(e.target.value)}
-              className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus-neon"
-            />
-          </div>
-          <div>
-            <label className="block text-neon-cyan font-semibold mb-2 text-lg">計画終了日</label>
-            <input
-              type="date"
-              value={plannedEndDate}
-              onChange={(e) => setPlannedEndDate(e.target.value)}
-              className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus-neon"
-            />
-          </div>
+        <div className="space-y-1">
+          <label className="block text-neon-cyan font-semibold mb-2 text-lg">計画開始日</label>
+          <input
+            type="date"
+            value={plannedStartDate}
+            onChange={(e) => setPlannedStartDate(e.target.value)}
+            className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-link"
+          />
+        </div>
+
+        <div className="space-y-1">
+          <label className="block text-neon-cyan font-semibold mb-2 text-lg">計画終了日</label>
+          <input
+            type="date"
+            value={plannedEndDate}
+            onChange={(e) => setPlannedEndDate(e.target.value)}
+            className="w-full px-4 py-3 bg-cyber-panel border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-link"
+          />
         </div>
  
         {/* ボタン */}
-        <div className="flex space-x-6">
+        <div className="space-y-1">
           <button
             type="submit"
-            className="neon-button"
+            className="btn px-6 py-3 bg-gray-800 text-neon-cyan rounded-lg hover:bg-gray-700 transition duration-150"
           >
             {projectId ? '更新' : '作成'}
           </button>
           <button
             type="button"
             onClick={() => navigate('/projects')}
-            className="px-6 py-3 bg-gray-800 text-neon-cyan rounded-lg hover:bg-gray-700 transition duration-150"
+            className="btn px-6 py-3 bg-gray-800 text-neon-cyan rounded-lg hover:bg-gray-700 transition duration-150"
           >
             キャンセル
           </button>

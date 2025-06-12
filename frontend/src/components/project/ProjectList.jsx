@@ -45,8 +45,8 @@ export default function ProjectList({
   };
 
   return (
-   <div className="overflow-x-auto cyber-panel-bg neon-outline rounded-lg">
-     <table className="min-w-full text-sm">
+   <div className="overflow-x-auto cyber-panel-bg neon-outline rounded-lg p-6 w-full">
+     <table className="table-full">
        <thead>
          <tr className="bg-[#111421] border-b border-gray-700">
            <th
@@ -86,22 +86,13 @@ export default function ProjectList({
              </td>
              <td className="p-3">{p.progress}%</td>
              <td className="p-3 flex space-x-2">
-               <Link
-                 to={`/projects/${p.id}`}
-                 className="neon-button text-xs flex items-center space-x-1"
-               >
+               <Link to={`/projects/${p.id}`} className="btn-3d">
                  <span>詳細</span>
                </Link>
-               <Link
-                 to={`/projects/${p.id}/edit`}
-                 className="neon-button text-xs flex items-center space-x-1"
-               >
+               <Link to={`/projects/${p.id}/edit`} className="btn-3d">
                  <span>編集</span>
                </Link>
-               <button
-                 onClick={() => handleDelete(p.id)}
-                 className="neon-button text-xs flex items-center space-x-1"
-               >
+               <button onClick={() => handleDelete(p.id)} className="btn-3d FR">
                  <span>削除</span>
                </button>
              </td>

@@ -32,7 +32,7 @@ export default function ProjectsPage() {
         {/* 新規作成ボタン */}
         <Link
           to="/projects/new"
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="btn px-6 py-3 bg-gray-800 text-neon-cyan rounded-lg hover:bg-gray-700 transition duration-150"
         >
           新規プロジェクト作成
         </Link>
